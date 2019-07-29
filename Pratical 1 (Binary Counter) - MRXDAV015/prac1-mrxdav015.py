@@ -8,15 +8,15 @@ Practical 1 (Binary Counter)
 import RPi.GPIO as GPIO
 
 #Pin Declarations
-power = 2
-ground = 6	
-increment = 36
-decrement = 38
-LED1 = 15
-LED2 = 13
-LED3 = 11 
+global power = 2
+global ground = 6	
+global increment = 36
+global decrement = 38
+global LED1 = 15
+global LED2 = 13
+global LED3 = 11 
 
-presses = 0
+global presses = 0
 
 def initializePins():	
 	#set mode	
@@ -30,6 +30,7 @@ def initializePins():
 	GPIO.setup(decrement, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 def Increment(channel):
+	global presses
 	if presses == 7:
 		presses = 0
 
@@ -37,6 +38,7 @@ def Increment(channel):
 		presses = presses + 1
 
 def Decrement(channel):
+	global presses
 	if presses == 0:
 		presses = 7
 
