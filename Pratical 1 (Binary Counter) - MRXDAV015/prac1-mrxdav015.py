@@ -7,6 +7,7 @@ Practical 1 (Binary Counter)
 
 import RPi.GPIO as GPIO
 
+GPIO.setmode(GPIO.BOARD)
 #Pin Declarations
 global power = 2
 global ground = 6	
@@ -45,9 +46,9 @@ def Decrement(channel):
 	else:
 		presses = presses - 1
 
-GPIO.add_event_detect(increment, GPIO.RISING, callback= Increment, bouncetime=300)  
+GPIO.add_event_detect(increment, GPIO.RISING, callback= Increment,bouncetime=300)  
 
-GPIO.add_event_detect(decrement, GPIO.RISING, callback= Decrement, bouncetime=300)  
+GPIO.add_event_detect(decrement, GPIO.RISING, callback= Decrement,bouncetime=300)  
 
 def main():
 	initializePins()
